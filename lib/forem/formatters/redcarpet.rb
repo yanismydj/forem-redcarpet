@@ -7,7 +7,7 @@ module Forem
     class Redcarpet
       def self.format(text)
         options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
-        renderer = ::Redcarpet::Markdown.new(::Redcarpet::Render::HTML, :fenced_code_blocks => true)
+        renderer = ::Redcarpet::Markdown.new(::Redcarpet::Render::HTML, :fenced_code_blocks => true, :autolink => true)
         syntax_highlight(Forem.formatter.sanitize(renderer.render(text))).html_safe
       end
 
